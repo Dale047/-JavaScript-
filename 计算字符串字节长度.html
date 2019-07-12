@@ -1,0 +1,24 @@
+<script type="text/javascript">
+	//计算ASCII码累加
+	function countStr(str) {
+		var len = str.length;
+		var num = 0;
+		for (var i = 0;i < len;i ++){
+			num +=  checkASCII(str[i].charCodeAt());
+		}
+		console.log(num);
+	}
+	//判断字节，255 标准
+	function checkASCII(num) {
+		var nums = 0;
+		if(num > 255){
+			nums = 2;
+		}else{
+			nums = 1;
+		}
+		return nums;
+	}
+	//用户键入数据
+	var number = String(window.prompt(""));
+	countStr(number);
+</script>
