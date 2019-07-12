@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BindSearchThree</title>
+</head>
+<body>
+<script type="text/javascript">
+	//冒泡排序
+	function BubbleSort(arr){
+		var len = arr.length;
+		//遍历所有数组
+		for (var i = 0;i < len;i ++){
+			for (var j = 0;j < len-i;j ++){
+				if(arr[j] > arr[j+1]){
+					var temp = arr[j+1];
+					arr[j+1] = arr[j];
+					arr[j] = temp;
+				}
+			}
+		}
+		return arr;
+	}
+	//二分查找
+	function BindarySearchThree(arr,result){
+		var start = 0;
+		var end = arr.length-1;
+		var middle;
+		while (start <= end){
+			middle = Math.floor((start + end)/2);
+			if(arr[middle] == result){
+				return "result是第"+(parseInt(middle)+1)+"个数据";
+			}else if(arr[middle] > result){
+				end = middle - 1;
+			}else{
+				start = middle + 1;
+			}
+		}
+		return "找不到这个数据";
+	}
+	//示例数组
+	var arr = ['4','2','6','3','9','5'];
+</script>
+</body>
+</html>
