@@ -1,0 +1,15 @@
+<script type="text/javascript">
+	var str = String(window.prompt('请输入字符内容'));
+	function checkMaxNum(str){
+		var len = str.length;
+		var arr = {};
+		for (var i = 0;i < len;i ++){
+			if(!arr[str.charAt(i)]){
+				arr[str.charAt(i)] = 1;
+			}else{
+				arr[str.charAt(i)] += 1;
+			}
+		}
+		return arr;
+	}
+</script>
