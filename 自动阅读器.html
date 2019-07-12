@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>自动阅读器</title>
+</head>
+<body>
+<div id="container">
+	<div id="start" style="width: 70px;height: 40px;background: lightgreen;position: fixed;bottom: 80px;right: 10px;cursor: pointer;">阅读</div>
+	<div id="pause" style="width: 70px;height: 40px;background: lightgreen;position: fixed;bottom: 10px;right: 10px;cursor: pointer;">暂停</div>
+</div>
+<script type="text/javascript">
+	var container =document.getElementById('container');
+	var p = [];
+	for(var i = 1;i <= 100;i ++){
+		p[i] = document.createElement('p');
+		var text = [];
+		p[i].setAttribute("data-log",i+1);
+		text[i] = document.createTextNode(i);
+		p[i].appendChild(text[i]);
+		container.appendChild(p[i]);
+	}
+
+	var start = document.getElementById('start');
+	var pause = document.getElementById('pause');
+	var timer = 0;
+	var flag = true;
+	start.onclick = function(){
+		if(flag){
+			timer = setInterval(function(){
+				window.scrollBy(0,20);
+				console.log(window.pageYOffset);
+			},1000);
+			flag = false;
+		}
+	}
+	pause.onclick = function(){
+		clearInterval(timer);
+	}
+</script>
+</body>
+</html>
